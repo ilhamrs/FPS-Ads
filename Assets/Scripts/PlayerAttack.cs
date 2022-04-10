@@ -14,11 +14,13 @@ public class PlayerAttack : MonoBehaviour
     private int ammoCurrent;
 
     public GameManager gameManager;
+    public SoundManager soundManager;
 
     public void Fire()
     {
         GameObject projectile = GameObject.Instantiate(projectilePrefab, muzzlePosition.transform.position, muzzlePosition.transform.rotation);
         GameObject flash = GameObject.Instantiate(muzzleFlash, muzzlePosition.transform.position, muzzlePosition.transform.rotation);
+        soundManager.shootSound();
     }
     // Start is called before the first frame update
     void Start()

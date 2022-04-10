@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AmmoCrate : MonoBehaviour
 {
+    public SoundManager soundManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class AmmoCrate : MonoBehaviour
         if (other.tag == "Player")
         {
             other.GetComponent<PlayerAttack>().addAmmo();
+            soundManager.getItemSound();
             Destroy(this.gameObject);
         }
     }

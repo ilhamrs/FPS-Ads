@@ -10,8 +10,7 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener
     [SerializeField] string _iOSGameId;
     [SerializeField] bool _testMode = true; // DISABLE ON FINAL BUILD
     private string _gameId;
-    //[SerializeField] Text adStatusText;
-
+    
     void Awake()
     {
         InitializeAds();
@@ -34,10 +33,5 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener
     {
         Debug.Log($"Unity Ads Initialization Failed: {error.ToString()} - {message}");
     }
-
-    //public Text GetAdStatus()
-    //{
-    //    return adStatusText;
-    //}
 
 }
