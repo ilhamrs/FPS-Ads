@@ -61,8 +61,8 @@ public class GameManager : MonoBehaviour
             PauseMenu.SetActive(false);
             playerController.enabled = true;
             playerAttack.enabled = true;
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            //Cursor.lockState = CursorLockMode.Locked;
+            //Cursor.visible = false;
         }
         else
         {
@@ -71,8 +71,8 @@ public class GameManager : MonoBehaviour
             PauseMenu.SetActive(true);
             playerController.enabled = false;
             playerAttack.enabled = false;
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = true;
+            //Cursor.lockState = CursorLockMode.Confined;
+            //Cursor.visible = true;
         }
     }
 
@@ -83,8 +83,8 @@ public class GameManager : MonoBehaviour
             isGameOver = true;
             youWin.SetActive(true);
             Time.timeScale = 0;
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = true;
+            //Cursor.lockState = CursorLockMode.Confined;
+            //Cursor.visible = true;
             playerController.enabled = false;
             playerAttack.enabled = false;
         }
@@ -97,8 +97,8 @@ public class GameManager : MonoBehaviour
             isGameOver = true;
             youLose.SetActive(true);
             Time.timeScale = 0;
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = true;
+            //Cursor.lockState = CursorLockMode.Confined;
+            //Cursor.visible = true;
             playerController.enabled = false;
             playerAttack.enabled = false;
         }
@@ -114,8 +114,8 @@ public class GameManager : MonoBehaviour
         isGameOver = false;
         youLose.SetActive(false);
         Time.timeScale = 1;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
         playerController.enabled = true;
         playerAttack.enabled = true;
         healthPlayer.resetToContinueAd();

@@ -18,9 +18,21 @@ public class PlayerAttack : MonoBehaviour
 
     public void Fire()
     {
-        GameObject projectile = GameObject.Instantiate(projectilePrefab, muzzlePosition.transform.position, muzzlePosition.transform.rotation);
-        GameObject flash = GameObject.Instantiate(muzzleFlash, muzzlePosition.transform.position, muzzlePosition.transform.rotation);
-        soundManager.shootSound();
+        if (!gameManager.onPause)
+        {
+            if (!gameManager.onPause || !gameManager.isGameOver)
+            {
+                if (ammoCurrent > 0)
+                {
+                    ammoCurrent--;
+                    ammoText.text = ammoCurrent.ToString() + "/" + ammoMax.ToString();
+                    GameObject projectile = GameObject.Instantiate(projectilePrefab, muzzlePosition.transform.position, muzzlePosition.transform.rotation);
+                    GameObject flash = GameObject.Instantiate(muzzleFlash, muzzlePosition.transform.position, muzzlePosition.transform.rotation);
+                    soundManager.shootSound();
+                }
+            }
+        }
+        
     }
     // Start is called before the first frame update
     void Start()
@@ -37,18 +49,18 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !gameManager.onPause)
-        {
-            if(!gameManager.onPause || !gameManager.isGameOver)
-            {
-                if (ammoCurrent > 0)
-                {
-                    ammoCurrent--;
-                    ammoText.text = ammoCurrent.ToString() + "/" + ammoMax.ToString();
-                    Fire();
-                }
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.Mouse0) && !gameManager.onPause)
+        //{
+        //    if (!gameManager.onPause || !gameManager.isGameOver)
+        //    {
+        //        if (ammoCurrent > 0)
+        //        {
+        //            ammoCurrent--;
+        //            ammoText.text = ammoCurrent.ToString() + "/" + ammoMax.ToString();
+        //            Fire();
+        //        }
+        //    }
+        //}
     }
 
     public void addAmmo()
